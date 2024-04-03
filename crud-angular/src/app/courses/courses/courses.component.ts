@@ -13,11 +13,12 @@ import { Observable } from 'rxjs';
 //como usar o servico aqui? atraves da DI, dependency injection
 export class CoursesComponent implements OnInit {
 
-  cursos: Observable<Course[]>;
+  //observables usando $ no nome da variavel
+  cursos$: Observable<Course[]>;
   displayedColumns =['name', 'category'];
 
   constructor(private coursesService: CoursesService){
-    this.cursos = this.coursesService.list();
+    this.cursos$ = this.coursesService.list();
   }
 
   ngOnInit(): void {

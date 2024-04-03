@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Course } from '../model/course';
 import { HttpClient } from '@angular/common/http';
-import { tap, first } from 'rxjs/operators';
+import { tap, first, delay } from 'rxjs/operators';
 
 //usaremos o servico dentro do componente.
 //também manipularemos os dados para que seja enviado
@@ -27,6 +27,7 @@ export class CoursesService {
     .pipe( //pipe = cano. manipular a informação de forma reativa passando pelo cano. (com operadores rxjs)
       //take(1),
       first(), //finaliza a conexão
+      //delay(15000),
       tap(listaCursos => console.log(listaCursos))
     );
   };

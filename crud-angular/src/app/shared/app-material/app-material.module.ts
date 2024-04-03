@@ -11,6 +11,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatTableModule,
     MatCardModule,
     MatToolbarModule
+  ],
+  exports:[
+    MatTableModule,
+    MatCardModule,
+    MatToolbarModule
   ]
 })
 export class AppMaterialModule { }

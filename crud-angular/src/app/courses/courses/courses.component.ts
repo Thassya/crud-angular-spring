@@ -1,20 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { CoursesService } from './../services/courses.service';
+
 import { Course } from '../model/course';
 
 @Component({
-  selector: 'app-courses',
-  templateUrl: './courses.component.html',
+  selector: 'app-courses', //selector, diretiva. o que poderemos usar no html (semelhante ao <mat-toolbar></mat-toolbar>)
+  templateUrl: './courses.component.html', //
   styleUrl: './courses.component.scss'
 })
+
+//como usar o servico aqui? atraves da DI, dependency injection
 export class CoursesComponent implements OnInit {
 
-  cursos: Course[] = [
-    {_id: '1', name: 'Angular', category: 'front-end'}
-  ];
+  cursos: Course[] = [];
   displayedColumns =['name', 'category'];
 
-  constructor(){
-    //this.cursos = []; //posible to inciate here now, not only on ngOnInit
+  constructor(private coursesService: CoursesService){
+    this.cursos = this.coursesService.list();
   }
   ngOnInit(): void {
 

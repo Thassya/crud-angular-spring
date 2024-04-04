@@ -27,7 +27,7 @@ export class CoursesService {
     .pipe( //pipe = cano. manipular a informação de forma reativa passando pelo cano. (com operadores rxjs)
       //take(1),
       first(), //finaliza a conexão
-      delay(5000),
+      //delay(5000),
       tap(listaCursos => console.log(listaCursos))
     );
   };
